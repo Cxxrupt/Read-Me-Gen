@@ -1,6 +1,9 @@
 
-const { writeFile } = require('fs');
+const fs = require('fs');
 const inquirer = require('inquirer');
+const util = require('util');
+const generateMarkdown = require('./utils/generateMarkdown');
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // Create an array of questions for user input
 const questions = [
@@ -54,8 +57,21 @@ const questions = [
 
 
 async function init() {
-  const answers = await inquirer.prompt(questions);
-  console.log(answers);
+  try {
+    // Prompt user for input using inquirer
+    const answers = await inquirer.prompt(questions);
+
+    // Generate README content based on user input
+    const content = generateMarkdown(answers);
+
+    // Write README file to disk
+    await writeFileAsync('README.md', content);
+
+    console.log('README.md file generated successfully!');
+  } catch (error) {
+    console.error(error);
+  }
 }
+
 
 init();
