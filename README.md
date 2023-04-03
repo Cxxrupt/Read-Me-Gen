@@ -34,3 +34,6 @@ I wrote the code off of a starter code
 ## Questions
 
 If you have any questions about the repo, please contact me at 123yaxk456@gmail.com. You can find more of my work at Cxxrupt.
+
+## Video 
+[Video Link] (https://drive.google.com/file/d/1edap1LX81ZIVAk6twdfZkQBR-q0qsLfz/view?usp=share_link)
